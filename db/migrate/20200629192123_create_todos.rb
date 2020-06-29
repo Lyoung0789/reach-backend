@@ -4,7 +4,7 @@ class CreateTodos < ActiveRecord::Migration[6.0]
       t.integer :goal_id
       t.string :description
       t.string :title
-      t.completed :boolean, default: false
+      t.boolean :completed, default: false
 
       t.timestamps
     end
