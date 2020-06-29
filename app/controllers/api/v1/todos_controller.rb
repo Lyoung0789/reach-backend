@@ -2,20 +2,24 @@ class Api::V1::TodosController < ApplicationController
 
     def index
         find_goal
-        
         todos = @goal.todos
         render json: todos
     end 
 
     def show
-        
         find_goal 
         todo = @goal.todos.find_by(id: params[:id])
         render json: todo
     end 
 
     def create
-        
+        find_goal
+        todo = @goal.todos.build(todo_params)
+        if todo.save
+            render json: todo
+        else 
+            render :json => { :error => todo.errors } 
+        end 
     end 
 
     # def update
