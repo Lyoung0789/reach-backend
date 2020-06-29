@@ -10,14 +10,22 @@ class Api::V1::GoalsController < ApplicationController
         render json: goal
     end 
 
-    # def create
-    # end 
+    def create
+        goal = Goal.new(goal_params)
+        if goal.save
+            render json: goal
+        else 
+            render :json => { :error => review.errors } 
+        end 
+    end 
 
     # def update
     # end 
 
-    # def destroy
-    # end 
+    def destroy
+        goal = Goal.all.find_by(id: params[:id])
+        goal.destroy
+    end 
 
 
     private 
