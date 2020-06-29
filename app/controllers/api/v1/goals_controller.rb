@@ -15,7 +15,7 @@ class Api::V1::GoalsController < ApplicationController
         if goal.save
             render json: goal
         else 
-            render :json => { :error => review.errors } 
+            render :json => { :error => goal.errors } 
         end 
     end 
 
