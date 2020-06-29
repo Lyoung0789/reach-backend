@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :todos
-  resources :goals
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1 do 
+      resources :todos
+      resources :goals
+    end 
+  end 
+
+  
+  # so the url for fetch will be "localhost:3000/api/v1/goals"
 end
