@@ -1,12 +1,10 @@
 class CreateTodos < ActiveRecord::Migration[6.0]
   def change
     create_table :todos do |t|
-      t.string :title 
-      t.string :description 
-      t.string :image_url
-      t.string :category
-      t.boolean :completed
-
+      t.integer :goal_id
+      t.string :description
+      t.string :title
+      t.completed :boolean
 
       t.timestamps
     end
