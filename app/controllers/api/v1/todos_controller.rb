@@ -1,22 +1,21 @@
 class Api::V1::TodosController < ApplicationController
 
     def index
-        todo = Todo.all 
-        render json: todo
+        find_goal
+        
+        todos = @goal.todos
+        render json: todos
     end 
 
     def show
-        todo = Todo.all.find_by(id: params[:id])
+        
+        find_goal 
+        todo = @goal.todos.find_by(id: params[:id])
         render json: todo
     end 
 
     def create
-        todo = Todo.new(todo_params)
-        if todo.save
-            render json: todo
-        else 
-            render :json => { :error => todo.errors } 
-        end 
+        
     end 
 
     # def update
@@ -31,5 +30,9 @@ class Api::V1::TodosController < ApplicationController
     private 
     def todo_params
         params.require(:todo).permit(:title, :description, :completed, :goal_id)
+    end 
+
+    def find_goal
+        @goal = Goal.all.find_by(id: params[:goal_id])
     end 
 end
