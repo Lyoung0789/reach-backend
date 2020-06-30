@@ -11,12 +11,15 @@ class Api::V1::GoalsController < ApplicationController
     end 
 
     def create
+        # binding.pry
         goal = Goal.new(goal_params)
+        goal.random_image
         if goal.save
             render json: goal
         else 
             render :json => { :error => goal.errors } 
         end 
+        binding.pry
     end 
 
     # def update
@@ -29,8 +32,11 @@ class Api::V1::GoalsController < ApplicationController
 
 
     private 
+
+    
     def goal_params
         params.require(:goal).permit(:title, :category, :description, :completed, :imageurl)
     end 
+
 
 end
