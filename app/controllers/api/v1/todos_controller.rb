@@ -13,10 +13,11 @@ class Api::V1::TodosController < ApplicationController
     end 
 
     def create
+        # send to front end the whole goal. since we setup the todo as part of the goal. 
         find_goal
         todo = @goal.todos.build(todo_params)
         if todo.save
-            render json: todo
+            render json: @goal
         else 
             render :json => { :error => todo.errors } 
         end 
