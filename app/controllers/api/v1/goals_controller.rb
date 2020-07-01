@@ -19,7 +19,7 @@ class Api::V1::GoalsController < ApplicationController
         else 
             render :json => { :error => goal.errors } 
         end 
-        binding.pry
+        
     end 
 
     # def update
