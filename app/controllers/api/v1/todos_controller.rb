@@ -23,8 +23,20 @@ class Api::V1::TodosController < ApplicationController
         end 
     end 
 
-    # def update
-    # end 
+    def update
+        
+        find_goal
+        todo = Todo.all.find_by(id: params[:id])
+        
+
+        if todo.update(completed: params[:completed])
+            render json: @goal
+        else 
+            render :json => {:error => todo.errors}
+        end 
+
+        
+    end 
 
     def destroy
         todo = Todo.all.find_by(id: params[:id])

@@ -22,8 +22,18 @@ class Api::V1::GoalsController < ApplicationController
         
     end 
 
-    # def update
-    # end 
+    def update
+        # binding.pry
+        goal = Goal.all.find_by(id: params[:id])
+
+        
+        if goal.update(completed: params[:completed])
+            render json: goal
+        else 
+            render :json => {:error => goal.errors}
+        end 
+
+    end 
 
     def destroy
         goal = Goal.all.find_by(id: params[:id])
