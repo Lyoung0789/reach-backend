@@ -2,7 +2,7 @@ class Goal < ApplicationRecord
     has_many :todos
     validates :title, presence: true
     validates :category, presence: true
-    validates :category, inclusion: {in: ['Budget', 'Travel', 'Health', 'Mental Health', 'Spiritual'] }
+    validates :category, inclusion: {in: ['Budget', 'Travel', 'Health', 'Mental Health', 'Spiritual', 'Cooking', 'Other'] }
 
 
     IMAGES = ["https://cdn.pixabay.com/photo/2019/11/22/17/15/drop-of-water-4645249__480.jpg",
