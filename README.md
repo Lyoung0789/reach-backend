@@ -8,7 +8,7 @@ Reach is an application where users can keep track of their goals. Users are als
 Version: ruby '2.6.1'
 
 The following gems were used: 
-
+```ruby
 gem 'rails', '~> 6.0.3', '>= 6.0.3.1'
 gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
@@ -23,6 +23,7 @@ group :development do
 end
 gem 'byebug'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+```
 
 To install these gems run:
 `bundle install`
