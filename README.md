@@ -4,7 +4,7 @@ This is the back end of my application, the frontend can be found here: https://
 Reach is an application where users can keep track of their goals. Users are also able to create and maintain checklists so that they are able to Reach their goals. 
 
 
-# Installation
+## Installation
 Version: ruby '2.6.1'
 
 The following gems were used: 
